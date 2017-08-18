@@ -61,7 +61,7 @@ module Kemal
 
     config.running = true
     yield config
-    config.server.listen if config.env != "test"
+    config.server.listen(config.reuse_port) if config.env != "test"
   end
 
   def self.stop
